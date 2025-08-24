@@ -1,0 +1,367 @@
+:root {
+    --bg: #0f1220;
+    --panel: #171a2b;
+    --muted: #8ea0b6;
+    --accent: #6ee7ff;
+    --good: #14e191;
+    --bad: #ff6b6b;
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+    color: #f0f4ff;
+    background: radial-gradient(1200px 700px at 20% -10%, #1c2340 0, transparent 70%),
+        radial-gradient(1200px 700px at 120% 110%, #1a1f36 0, transparent 70%), var(--bg);
+}
+
+.wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px
+}
+
+.grid {
+    display: grid;
+    gap: 16px
+}
+
+.pan {
+    background: var(--panel);
+    border: 1px solid #2a3152;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .25)
+}
+
+.row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center
+}
+
+input,
+select,
+button {
+    background: #0f1326;
+    border: 1px solid #2a3152;
+    color: #fff;
+    padding: 10px 12px;
+    border-radius: 12px
+}
+
+button {
+    cursor: pointer
+}
+
+button.primary {
+    background: linear-gradient(90deg, #246bff, #26d4ff);
+    border: none
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 13px
+}
+
+.players {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px
+}
+
+.pCard {
+    background: #0f1326;
+    border: 1px dashed #2a3152;
+    border-radius: 16px;
+    padding: 12px;
+    min-height: 88px
+}
+
+.tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    border: 1px solid #2a3152
+}
+
+.teamA {
+    background: #112a1e;
+    border-color: #1b6a4b
+}
+
+.teamB {
+    background: #2a162a;
+    border-color: #6a1b6a
+}
+
+.me {
+    outline: 2px solid var(--accent)
+}
+
+.zone {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap
+}
+
+.card {
+    background: #12162b;
+    border: 1px solid #2a3152;
+    border-radius: 12px;
+    padding: 8px;
+    width: 140px
+}
+
+.card h4 {
+    margin: 0 0 6px
+}
+
+.card small {
+    color: var(--muted)
+}
+
+.log {
+    max-height: 160px;
+    overflow: auto;
+    font-size: 13px;
+    background: #0c0f1d;
+    border-radius: 12px;
+    padding: 8px;
+    border: 1px solid #222845
+}
+
+.turn {
+    font-weight: 700
+}
+
+.health {
+    font-weight: 700
+}
+
+/* Botones de advertencia y kick */
+button.warning {
+    background: linear-gradient(90deg, #ff6b6b, #ff8e53);
+    border: none;
+    color: white;
+}
+
+button.warning:hover {
+    background: linear-gradient(90deg, #ff5252, #ff7043);
+}
+
+button:disabled {
+    background: #2a3152;
+    color: var(--muted);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+button:disabled:hover {
+    background: #2a3152;
+}
+
+/* Controles del anfitrión */
+#ownerControls {
+    border: 1px dashed #4a5568;
+    background: rgba(26, 31, 46, 0.5);
+}
+
+/* Botones de kick en las cartas de jugador */
+.kick-btn {
+    background: #ff6b6b;
+    border: 1px solid #ff5252;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.kick-btn:hover {
+    opacity: 1;
+    background: #ff5252;
+}
+
+/* Indicadores de estado de conexión */
+.connection-status {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-left: 4px;
+}
+
+.connection-status.online {
+    background: var(--good);
+    box-shadow: 0 0 4px var(--good);
+}
+
+.connection-status.offline {
+    background: var(--bad);
+    box-shadow: 0 0 4px var(--bad);
+}
+
+/* Mejoras en los slots de jugadores */
+.pCard .row {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pCard.empty {
+    border-style: dashed;
+    opacity: 0.6;
+}
+
+/* Indicador de requisitos para iniciar */
+#startRequirement {
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+}
+
+#startRequirement.ready {
+    color: var(--good);
+    font-weight: bold;
+}
+
+/* Animaciones para cambios de estado */
+.pCard {
+    transition: all 0.3s ease;
+}
+
+.pCard.me {
+    outline: 2px solid var(--accent);
+    box-shadow: 0 0 8px rgba(110, 231, 255, 0.3);
+}
+
+/* Mejoras en las notificaciones de log */
+.log div {
+    margin-bottom: 2px;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+.log div.error {
+    background: rgba(255, 107, 107, 0.1);
+    color: var(--bad);
+}
+
+.log div.success {
+    background: rgba(20, 225, 145, 0.1);
+    color: var(--good);
+}
+
+.log div.warning {
+    background: rgba(255, 149, 0, 0.1);
+    color: #ff9500;
+}
+
+/* Efectos hover mejorados */
+.pCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.pCard.me:hover {
+    box-shadow: 0 4px 12px rgba(110, 231, 255, 0.4);
+}
+
+/* Indicador de turno más visible */
+.turn {
+    font-weight: 700;
+    color: var(--accent);
+    text-shadow: 0 0 4px rgba(110, 231, 255, 0.5);
+}
+
+/* Estados de salud mejorados */
+.health {
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: rgba(20, 225, 145, 0.2);
+}
+
+.health.low {
+    background: rgba(255, 149, 0, 0.2);
+    color: #ff9500;
+}
+
+.health.critical {
+    background: rgba(255, 107, 107, 0.2);
+    color: var(--bad);
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .players {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .pCard {
+        min-height: 60px;
+        padding: 8px;
+    }
+
+    .kick-btn {
+        font-size: 10px;
+        padding: 1px 4px;
+    }
+
+    #ownerControls {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+/* Estados de loading */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+    position: relative;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid var(--muted);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

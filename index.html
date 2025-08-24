@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2v2 Cards — Turnos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="wrap grid">
+    <!-- Header -->
+    <header class="row">
+      <h1 style="margin:0">2v2 — Cartas por turnos</h1>
+      <span class="tag">Multijugador en tiempo real</span>
+    </header>
+
+    <!-- LOBBY PANEL -->
+    <section id="lobby" class="pan">
+      <!-- El contenido del lobby se genera dinámicamente por el sistema declarativo -->
+    </section>
+
+    <!-- GAME PANEL -->
+    <section id="game" class="pan" style="display:none">
+      <!-- El contenido del juego se genera dinámicamente por el sistema declarativo -->
+    </section>
+
+    <!-- Loading Indicator -->
+    <div id="loading" class="pan" style="display:none; text-align:center;">
+      <p>Conectando...</p>
+    </div>
+
+    <!-- Error Panel -->
+    <div id="error" class="pan" style="display:none; background:#2a1616; border-color:#6a1b1b;">
+      <h3>Error</h3>
+      <p id="errorMessage"></p>
+      <button onclick="window.GameDebug?.StateManager?.smartReload() || location.reload()">Recargar</button>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script type="module" src="js/config.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
