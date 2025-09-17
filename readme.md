@@ -1,4 +1,4 @@
-# 2v2 Card Game - Juego de Cartas Multijugador
+# 2v2 Card Game - Juego de Cartas Multijugador - Generado con IA
 
 Un juego de cartas por turnos 2 vs 2 construido con HTML5, JavaScript vanilla y Firebase Firestore para multijugador en tiempo real.
 
@@ -506,12 +506,5 @@ graph TD
 - [ ] Torneos automáticos
 - [ ] Múltiples tipos de mazos
 
-## 📞 Contacto y Soporte
-
-- **Issues**: GitHub Issues para bugs y features
-- **Discusiones**: GitHub Discussions para preguntas
-- **Email**: [tu-email@ejemplo.com]
-
----
 
 **¡Gracias por usar nuestro juego de cartas 2v2! 🎮**
